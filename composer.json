@@ -1,0 +1,30 @@
+{
+    "name": "developer88/allergomoms_doctors_xls_parser",
+    "description": "Parse and convert Excel file to json format.",
+    "keywords": [
+        "php",
+        "excel",
+        "xlsx",
+        "parser",
+        "backend",
+        "datatables",
+        "json"
+    ],
+    "homepage": "https://github.com/developer88/allergomoms_doctors_xls_parser",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrey Eremin (dsoft88)",
+            "email": "dsoft88@gmail.com",
+            "homepage": "http://aeremin.ru/"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "src/parser.php"
+        ]
+    },
+    "require": {
+        "shuchkin/simplexlsx": "dev-master"
+    }
+}
