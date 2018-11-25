@@ -2,8 +2,6 @@
 
 Simple script to convert Excel sheet into json format to work with https://datatables.net jQuery plugin.
 
-Add `google_api_key.php` with the following code:
-
 ## Usage
 
 Execute: 
