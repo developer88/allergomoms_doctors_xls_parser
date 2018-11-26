@@ -1,3 +1,8 @@
-# v1.0.0
+# v1.1
+
+* export speciality with first letter capital
+* trim address and speciality from `?`
+
+# v1.0
 
 * first version

@@ -26,8 +26,9 @@ function parse_excel_file($file) {
     for ($i=1; $i < count($rows); $i++) { 
         array_push($as_json, array(
             "name" => $rows[$i][3],
-            "address" => implode(", ", array($rows[$i][0], $rows[$i][1], $rows[$i][4])),
-            "links" => parse_links($rows[$i])
+            "address" => implode(", ", array($rows[$i][0], $rows[$i][1], trim(str_replace("?", "", $rows[$i][4])) )),
+            "links" => parse_links($rows[$i]),
+            "speciality" => mb_convert_case(trim(str_replace("?", "", $rows[$i][2])), MB_CASE_TITLE, "UTF-8")
         )); 
     }
 
