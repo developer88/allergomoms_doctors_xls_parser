@@ -1,6 +1,7 @@
 {
     "name": "developer88/allergomoms_doctors_xls_parser",
     "description": "Parse and convert Excel file to json format.",
+    "version": "1.2",
     "keywords": [
         "php",
         "excel",

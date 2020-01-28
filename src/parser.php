@@ -1,10 +1,19 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 
+$file_path = $_ENV["FILE"];
+
+// Download remote file
+if ( isset($_ENV["REMOTE"]) ) {
+    echo "Downloading file " . $_ENV["REMOTE"] . " to `./list.xlsx`\n";
+    file_put_contents("list.xlsx", fopen($_ENV["REMOTE"], 'r'));
+    $file_path = "./list.xlsx";
+}
+
 // Load Excel sheet
-echo "Opening file " . $_ENV["FILE"] . "\n";
-if ( $xlsx = SimpleXLSX::parse($_ENV["FILE"]) ) {
-    save_json(parse_excel_file($xlsx));
+echo "Opening file " . $file_path . "\n";
+if ( $xlsx = SimpleXLSX::parse($file_path) ) {
+    save_json(parse_excel_file($xlsx), $file_path);
 } else {
 	echo SimpleXLSX::parseError();
 }
@@ -44,8 +53,8 @@ function parse_links($arr) {
     return $links;
 }
 
-function save_json($arr) {
-    $filename = dirname(realpath($_ENV["FILE"])) . "/doctors.json";
+function save_json($arr, $file_path) {
+    $filename = dirname(realpath($file_path)) . "/doctors.json";
     echo "Saving to json file to $filename\n";
     $arr = array("data" => $arr);
     file_put_contents($filename, json_encode($arr, JSON_UNESCAPED_UNICODE));
